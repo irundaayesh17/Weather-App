@@ -39,7 +39,7 @@ def getweather(city):
 #functions
 def search():
     try:
-        city = search_bar.get()
+        city = 'galle'
         weather = getweather(city)
         if weather:
             city_name['text'] = '{}, {}'.format(weather[0], weather[1])
@@ -50,7 +50,7 @@ def search():
             weather_icon.image = icon
             temp_lbl['text'] = '{:.1f}°C'.format(weather[4])
             desc_lbl['text'] = weather[5]
-            maxmintemp_lbl['text'] = 'Min Temp: {:.0f}°C, Max Temp: {:.0f}°C'.format(weather[6], weather[7])
+            maxmintemp_lbl['text'] = '{:.0f}°C / {:.0f}°C'.format(weather[6], weather[7])
             print(weather)
         else:
             messagebox.showerror('Error', 'City not found')
@@ -85,11 +85,11 @@ style.configure('search.TButton', font=('Arial', 8), padding=5)
 search_button.place(x=550, y=50)
 
 city_name = ttk.Label(weatherapp, text='', style='city.TLabel')
-style.configure('city.TLabel', font=('Arial', 20), foreground='white', background='blue')
+style.configure('city.TLabel', font=('Segoe UI Semibold', 20), foreground='white', background='blue')
 city_name.place(x=370, y=100)
 
 date_lbl = ttk.Label(weatherapp, text='', style='date.TLabel')
-style.configure('date.TLabel', font=('Arial', 10), foreground='white', background='blue')
+style.configure('date.TLabel', font=('Segoe UI Semibold', 10), foreground='white', background='blue')
 date_lbl.place(x=340, y=140)
 
 weather_icon = ttk.Label(weatherapp, style='icon.TLabel')
@@ -97,15 +97,15 @@ style.configure('icon.TLabel', background='blue')
 weather_icon.place(x=400, y=180)
 
 temp_lbl = ttk.Label(weatherapp, text='', style='temp.TLabel')
-style.configure('temp.TLabel', font=('Arial', 50, 'bold'), foreground='white', background='blue')
+style.configure('temp.TLabel', font=('Segoe UI Semibold', 50, 'bold'), foreground='white', background='blue')
 temp_lbl.place(x=340, y=230)
 
 desc_lbl = ttk.Label(weatherapp, text='', style='desc.TLabel')
-style.configure('desc.TLabel', font=('Arial', 15, 'bold'), foreground='white', background='blue')
-desc_lbl.place(x=370, y=320)
+style.configure('desc.TLabel', font=('Segoe UI Semibold', 16, 'italic bold'), foreground='white', background='blue')
+desc_lbl.place(x=370, y=325)
 
 maxmintemp_lbl = ttk.Label(weatherapp, text='', style='maxmin.TLabel')
-style.configure('maxmin.TLabel', font=('Arial', 13), foreground='white', background='blue')
-maxmintemp_lbl.place(x=320, y=350)
+style.configure('maxmin.TLabel', font=('Segoe UI Semibold', 13, 'bold'), foreground='white', background='blue')
+maxmintemp_lbl.place(x=400, y=360)
 
 weatherapp.mainloop()
